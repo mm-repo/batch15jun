@@ -1,0 +1,11 @@
+---
+ - hosts: webserver
+   tasks:
+   - name: Checking the PING on all web-server
+     ping:
+   - name: Install HTTPD package
+     yum: name=httpd state=present
+   - name: Start HTTPD Service
+     service: name=httpd state=started
+   - name: Copy my Application file
+     copy: src=/root/application.html dest=/var/www/html/
